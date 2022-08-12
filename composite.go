@@ -1,4 +1,4 @@
-package any
+package convert
 
 func SliceOfString(any interface{}) (out []string) {
 	switch any := any.(type) {
