@@ -5,37 +5,37 @@ import (
 	"strconv"
 )
 
-func BoolP(any interface{}) *bool {
-	value := Bool(any)
+func ToBoolP(any interface{}) *bool {
+	value := ToBool(any)
 	return &value
 }
 
-func IntP(any interface{}) *int {
-	value := Int(any)
+func ToIntP(any interface{}) *int {
+	value := ToInt(any)
 	return &value
 }
 
-func Int64P(any interface{}) *int64 {
-	value := Int64(any)
+func ToInt64P(any interface{}) *int64 {
+	value := ToInt64(any)
 	return &value
 }
 
-func Float32P(any interface{}) *float32 {
-	value := float32(Float(any))
+func ToFloat32P(any interface{}) *float32 {
+	value := float32(ToFloat(any))
 	return &value
 }
 
-func Float64P(any float64) *float64 {
-	value := Float(any)
+func ToFloat64P(any float64) *float64 {
+	value := ToFloat(any)
 	return &value
 }
 
-func StringP(any string) *string {
-	value := String(any)
+func ToStringP(any string) *string {
+	value := ToString(any)
 	return &value
 }
 
-func String(any interface{}) (out string) {
+func ToString(any interface{}) (out string) {
 	switch any := any.(type) {
 
 	case int:
@@ -76,11 +76,11 @@ func String(any interface{}) (out string) {
 	return
 }
 
-func Int(any interface{}) (out int) {
-	return int(Int64(any))
+func ToInt(any interface{}) (out int) {
+	return int(ToInt64(any))
 }
 
-func Int64(any interface{}) (out int64) {
+func ToInt64(any interface{}) (out int64) {
 	switch any := any.(type) {
 
 	case int:
@@ -108,13 +108,13 @@ func Int64(any interface{}) (out int64) {
 		out, _ = strconv.ParseInt(any, 10, 64)
 
 	default:
-		out = Int64(0)
+		out = ToInt64(0)
 	}
 
 	return
 }
 
-func Float(any interface{}) (out float64) {
+func ToFloat(any interface{}) (out float64) {
 	switch any := any.(type) {
 
 	case int:
@@ -148,8 +148,8 @@ func Float(any interface{}) (out float64) {
 	return
 }
 
-func Bool(any interface{}) (out bool) {
-	val := String(any)
+func ToBool(any interface{}) (out bool) {
+	val := ToString(any)
 	out, _ = strconv.ParseBool(val)
 
 	return

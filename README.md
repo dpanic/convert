@@ -28,23 +28,23 @@ Go Playground is here https://go.dev/play/p/Z5phbxlWGg0
 * Same as above but with * pointer
 
 ### Primitive type conversions:
-* BoolP -> *bool
-* IntP -> *int
-* Int64P -> *int64
-* Float32P -> *float32
-* Float64P -> *float64
-* StringP -> *string
-* String -> string
-* Int -> int
-* Int64 -> int64
-* Float -> float64
-* Bool -> bool
+* ToBoolP -> *bool
+* ToIntP -> *int
+* ToInt64P -> *int64
+* ToFloat32P -> *float32
+* ToFloat64P -> *float64
+* ToStringP -> *string
+* ToString -> string
+* ToInt -> int
+* ToInt64 -> int64
+* ToFloat -> float64
+* ToBool -> bool
 
 ### Composite type conversions:
-* SliceOfString -> []string
-* SliceOfFloat -> []float64
-* MapOfStrings -> map[string]string
-* MapOfInterfaces -> map[string]interface{}
-* SliceOfMap -> []map[string]string
-* SliceOfMapOfInterfaces -> []map[string]interface{}
-* SliceOfBool -> []bool
+* ToSliceOfString -> []string
+* ToSliceOfFloat -> []float64
+* ToMapOfStrings -> map[string]string
+* ToMapOfInterfaces -> map[string]interface{}
+* ToSliceOfMap -> []map[string]string
+* ToSliceOfMapOfInterfaces -> []map[string]interface{}
+* ToSliceOfBool -> []bool

@@ -1,71 +1,71 @@
 package convert
 
-func SliceOfString(any interface{}) (out []string) {
+func ToSliceOfString(any interface{}) (out []string) {
 	switch any := any.(type) {
 
 	case []interface{}:
 		for _, item := range any {
-			val := String(item)
+			val := ToString(item)
 			out = append(out, val)
 		}
 
 	case []*string:
 		for _, item := range any {
-			val := String(*item)
+			val := ToString(*item)
 			out = append(out, val)
 		}
 
 	case []string:
 		for _, item := range any {
-			val := String(item)
+			val := ToString(item)
 			out = append(out, val)
 		}
 
 	case []int:
 		for _, item := range any {
-			val := String(item)
+			val := ToString(item)
 			out = append(out, val)
 		}
 
 	case []int8:
 		for _, item := range any {
-			val := String(item)
+			val := ToString(item)
 			out = append(out, val)
 		}
 
 	case []int16:
 		for _, item := range any {
-			val := String(item)
+			val := ToString(item)
 			out = append(out, val)
 		}
 
 	case []int32:
 		for _, item := range any {
-			val := String(item)
+			val := ToString(item)
 			out = append(out, val)
 		}
 
 	case []int64:
 		for _, item := range any {
-			val := String(item)
+			val := ToString(item)
 			out = append(out, val)
 		}
 
 	case []float32:
 		for _, item := range any {
-			val := String(item)
+			val := ToString(item)
 			out = append(out, val)
 		}
 
 	case []float64:
 		for _, item := range any {
-			val := String(item)
+			val := ToString(item)
 			out = append(out, val)
 		}
 
 	case []bool:
 		for _, item := range any {
-			val := String(item)
+			val := ToString(item)
 			out = append(out, val)
 		}
 
@@ -75,60 +75,60 @@ func SliceOfString(any interface{}) (out []string) {
 	return
 }
 
-func SliceOfFloat(any interface{}) (out []float64) {
+func ToSliceOfFloat(any interface{}) (out []float64) {
 	switch any := any.(type) {
 
 	case []interface{}:
 		for _, item := range any {
-			val := Float(item)
+			val := ToFloat(item)
 			out = append(out, val)
 		}
 
 	case []int:
 		for _, item := range any {
-			val := Float(item)
+			val := ToFloat(item)
 			out = append(out, val)
 		}
 
 	case []int8:
 		for _, item := range any {
-			val := Float(item)
+			val := ToFloat(item)
 			out = append(out, val)
 		}
 
 	case []int16:
 		for _, item := range any {
-			val := Float(item)
+			val := ToFloat(item)
 			out = append(out, val)
 		}
 
 	case []int32:
 		for _, item := range any {
-			val := Float(item)
+			val := ToFloat(item)
 			out = append(out, val)
 		}
 
 	case []int64:
 		for _, item := range any {
-			val := Float(item)
+			val := ToFloat(item)
 			out = append(out, val)
 		}
 
 	case []float32:
 		for _, item := range any {
-			val := Float(item)
+			val := ToFloat(item)
 			out = append(out, val)
 		}
 
 	case []float64:
 		for _, item := range any {
-			val := Float(item)
+			val := ToFloat(item)
 			out = append(out, val)
 		}
 
 	case []bool:
 		for _, item := range any {
-			val := Float(item)
+			val := ToFloat(item)
 			out = append(out, val)
 		}
 
@@ -139,14 +139,14 @@ func SliceOfFloat(any interface{}) (out []float64) {
 	return
 }
 
-func MapOfStrings(any interface{}) (out map[string]string) {
+func ToMapOfStrings(any interface{}) (out map[string]string) {
 	out = make(map[string]string)
 
 	switch val := any.(type) {
 
 	case map[string]interface{}:
 		for key, value := range val {
-			out[key] = String(value)
+			out[key] = ToString(value)
 		}
 
 	case map[string]string:
@@ -159,7 +159,7 @@ func MapOfStrings(any interface{}) (out map[string]string) {
 	return
 }
 
-func MapOfInterfaces(any interface{}) (out map[string]interface{}) {
+func ToMapOfInterfaces(any interface{}) (out map[string]interface{}) {
 
 	out = make(map[string]interface{})
 
@@ -180,7 +180,7 @@ func MapOfInterfaces(any interface{}) (out map[string]interface{}) {
 	return
 }
 
-func SliceOfMap(any interface{}) (out []map[string]string) {
+func ToSliceOfMap(any interface{}) (out []map[string]string) {
 
 	out = make([]map[string]string, 0)
 
@@ -188,13 +188,13 @@ func SliceOfMap(any interface{}) (out []map[string]string) {
 
 	case []map[string]interface{}:
 		for _, item := range val {
-			obj := MapOfStrings(item)
+			obj := ToMapOfStrings(item)
 			out = append(out, obj)
 		}
 
 	case []interface{}:
 		for _, item := range val {
-			obj := MapOfStrings(item)
+			obj := ToMapOfStrings(item)
 			out = append(out, obj)
 		}
 
@@ -202,13 +202,13 @@ func SliceOfMap(any interface{}) (out []map[string]string) {
 		out = append(out, val...)
 
 	default:
-		//fmt.Printf("SliceOfMap, unknown type: %T | %+v\n", val, any)
+		// noop
 	}
 
 	return
 }
 
-func SliceOfMapOfInterfaces(any interface{}) (out []map[string]interface{}) {
+func ToSliceOfMapOfInterfaces(any interface{}) (out []map[string]interface{}) {
 	out = make([]map[string]interface{}, 0)
 
 	switch val := any.(type) {
@@ -218,13 +218,13 @@ func SliceOfMapOfInterfaces(any interface{}) (out []map[string]interface{}) {
 
 	case []interface{}:
 		for _, item := range val {
-			obj := MapOfInterfaces(item)
+			obj := ToMapOfInterfaces(item)
 			out = append(out, obj)
 		}
 
 	case []map[string]string:
 		for _, item := range val {
-			obj := MapOfInterfaces(item)
+			obj := ToMapOfInterfaces(item)
 			out = append(out, obj)
 		}
 
@@ -235,12 +235,12 @@ func SliceOfMapOfInterfaces(any interface{}) (out []map[string]interface{}) {
 	return
 }
 
-func SliceOfBool(any interface{}) (out []bool) {
+func ToSliceOfBool(any interface{}) (out []bool) {
 	switch any := any.(type) {
 
 	case []interface{}:
 		for _, item := range any {
-			val := Bool(item)
+			val := ToBool(item)
 			out = append(out, val)
 		}
 
