@@ -2,7 +2,10 @@
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/dpanic/conv)](https://goreportcard.com/report/github.com/dpanic/any)
 
-Converting String to []string, or string to float64 could be handy sometimes, when your project has inconsistent input.
+Converting String to []string, or string to float64 could be handy **sometimes**, when your project has inconsistent input.
+
+**UNPOPULAR OPINION:** As Go is strictly typed language, I am not fan of casting and converting like this, but sometimes it can be very handy while handling incosistent data!
+
 
 ## Usage
 ``` Go
