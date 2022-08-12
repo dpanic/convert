@@ -4,6 +4,25 @@
 
 Converting String to []string, or string to float64 could be handy sometimes, when your project has inconsistent input.
 
+## Usage
+``` Go
+package main
+
+import (
+	"fmt"
+
+	"github.com/dpanic/convert"
+)
+
+func main() {
+	res := convert.ToInt("123")
+	fmt.Printf("%+v %t\n", res, res)
+}
+```
+
+Go Playground is here https://go.dev/play/p/Z5phbxlWGg0
+
+
 ## Features
 * Convert basic types to any other basic type
 * Same as above but with * pointer
