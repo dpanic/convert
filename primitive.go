@@ -5,28 +5,34 @@ import (
 	"strconv"
 )
 
-func BoolP(any bool) *bool {
-	return &any
+func BoolP(any interface{}) *bool {
+	value := Bool(any)
+	return &value
 }
 
-func IntP(any int) *int {
-	return &any
+func IntP(any interface{}) *int {
+	value := Int(any)
+	return &value
 }
 
-func Int64P(any int64) *int64 {
-	return &any
+func Int64P(any interface{}) *int64 {
+	value := Int64(any)
+	return &value
 }
 
-func Float32P(any float32) *float32 {
-	return &any
+func Float32P(any interface{}) *float32 {
+	value := float32(Float(any))
+	return &value
 }
 
 func Float64P(any float64) *float64 {
-	return &any
+	value := Float(any)
+	return &value
 }
 
 func StringP(any string) *string {
-	return &any
+	value := String(any)
+	return &value
 }
 
 func String(any interface{}) (out string) {
