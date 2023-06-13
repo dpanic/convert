@@ -24,4 +24,20 @@ func TestComposite(t *testing.T) {
 	if _, ok := res8["key"]; ok == false {
 		t.Errorf("Result was incorrect, existance of key 'key'")
 	}
+
+	type TestStructure struct{
+		property1 string
+		property2 string
+	}
+
+	test9 := map[string]TestStructure{
+		"key": {
+			property1: "val1",
+			property2: "val2",
+		},
+	}
+	res9 := ToMapOfStruct[TestStructure](test9)
+	if _, ok := res9["key"]; ok == false {
+		t.Errorf("Testing ToMapOfStruct result was incorrect, existance of key 'key'")
+	}
 }

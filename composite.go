@@ -253,3 +253,20 @@ func ToSliceOfBool(any interface{}) (out []bool) {
 
 	return
 }
+
+func ToMapOfStruct[T any](any interface{}) (out map[string]T) {
+	out = make(map[string]T)
+
+	switch val := any.(type) {
+
+	case map[string]T:
+		for key, value := range val {
+			out[key] = value
+		}
+
+	default:
+		// noop
+	}
+
+	return
+}
