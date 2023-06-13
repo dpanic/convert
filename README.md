@@ -51,3 +51,4 @@ Go Playground is here https://go.dev/play/p/Z5phbxlWGg0
 * ToSliceOfMap -> []map[string]string
 * ToSliceOfMapOfInterfaces -> []map[string]interface{}
 * ToSliceOfBool -> []bool
+* ToMapOfStruct[T] -> map[string]T
