@@ -1,5 +1,10 @@
 package convert
 
+// ToSliceOfString converts any slice type to a slice of strings.
+// It supports []interface{}, []*string, []string, []int, []int8, []int16,
+// []int32, []int64, []float32, []float64, and []bool types.
+// Each element is converted using ToString.
+// Returns nil for unsupported types.
 func ToSliceOfString(any interface{}) (out []string) {
 	switch any := any.(type) {
 
@@ -75,6 +80,11 @@ func ToSliceOfString(any interface{}) (out []string) {
 	return
 }
 
+// ToSliceOfFloat converts any slice type to a slice of float64 values.
+// It supports []interface{}, []int, []int8, []int16, []int32, []int64,
+// []float32, []float64, and []bool types.
+// Each element is converted using ToFloat.
+// Returns nil for unsupported types.
 func ToSliceOfFloat(any interface{}) (out []float64) {
 	switch any := any.(type) {
 
@@ -139,6 +149,10 @@ func ToSliceOfFloat(any interface{}) (out []float64) {
 	return
 }
 
+// ToMapOfStrings converts any map type to a map with string keys and string values.
+// It supports map[string]interface{} and map[string]string types.
+// For map[string]interface{}, each value is converted using ToString.
+// Returns an empty map for unsupported types.
 func ToMapOfStrings(any interface{}) (out map[string]string) {
 	out = make(map[string]string)
 
@@ -159,8 +173,10 @@ func ToMapOfStrings(any interface{}) (out map[string]string) {
 	return
 }
 
+// ToMapOfInterfaces converts any map type to a map with string keys and interface{} values.
+// It supports map[string]interface{} and map[string]string types.
+// Returns an empty map for unsupported types.
 func ToMapOfInterfaces(any interface{}) (out map[string]interface{}) {
-
 	out = make(map[string]interface{})
 
 	switch val := any.(type) {
@@ -174,14 +190,17 @@ func ToMapOfInterfaces(any interface{}) (out map[string]interface{}) {
 		out = any.(map[string]interface{})
 
 	default:
-		//fmt.Printf("MapOfStrings, unknown type: %T | %+v\n", val, any)
+		// fmt.Printf("MapOfStrings, unknown type: %T | %+v\n", val, any)
 	}
 
 	return
 }
 
+// ToSliceOfMap converts any slice of maps to a slice of map[string]string.
+// It supports []map[string]interface{}, []interface{}, and []map[string]string types.
+// Each map element is converted using ToMapOfStrings.
+// Returns an empty slice for unsupported types.
 func ToSliceOfMap(any interface{}) (out []map[string]string) {
-
 	out = make([]map[string]string, 0)
 
 	switch val := any.(type) {
@@ -208,6 +227,10 @@ func ToSliceOfMap(any interface{}) (out []map[string]string) {
 	return
 }
 
+// ToSliceOfMapOfInterfaces converts any slice of maps to a slice of map[string]interface{}.
+// It supports []map[string]interface{}, []interface{}, and []map[string]string types.
+// Each map element is converted using ToMapOfInterfaces.
+// Returns an empty slice for unsupported types.
 func ToSliceOfMapOfInterfaces(any interface{}) (out []map[string]interface{}) {
 	out = make([]map[string]interface{}, 0)
 
@@ -235,6 +258,10 @@ func ToSliceOfMapOfInterfaces(any interface{}) (out []map[string]interface{}) {
 	return
 }
 
+// ToSliceOfBool converts any slice type to a slice of boolean values.
+// It supports []interface{} and []bool types.
+// Each element is converted using ToBool.
+// Returns nil for unsupported types.
 func ToSliceOfBool(any interface{}) (out []bool) {
 	switch any := any.(type) {
 
